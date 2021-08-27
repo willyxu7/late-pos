@@ -1,0 +1,4 @@
+class ShiftDetailModel {
+  int id;
+
+}
