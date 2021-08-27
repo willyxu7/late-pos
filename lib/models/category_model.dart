@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 
 class CategoryModel {
+  int id;
   String name;
   String description;
 
-  CategoryModel({@required this.name,
+  CategoryModel({this.id, @required this.name,
     this.description
   });
 }

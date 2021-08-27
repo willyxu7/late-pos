@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:late_pos/screens/daily_reports/daily_report_screen.dart';
 import 'package:late_pos/screens/product_settings/product_setting_screen.dart';
-import 'package:late_pos/screens/orders/order_screen.dart';
+import 'package:late_pos/screens/sale/sale_screen.dart';
 import 'package:late_pos/screens/shifts/shift_screen.dart';
 import 'package:late_pos/screens/transaction_histories/transaction_history_screen.dart';
 
@@ -42,7 +42,7 @@ class _MyDrawerState extends State<MyDrawer> {
                   selected: widget.selectedDestination == 0,
                   onTap: () {
                     Navigator.pushReplacement(context,
-                        MaterialPageRoute(builder: (context) => OrderScreen()));
+                        MaterialPageRoute(builder: (context) => SaleScreen()));
                   },
                 ),
                 ListTile(

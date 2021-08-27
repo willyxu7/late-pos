@@ -14,6 +14,8 @@ class CatalogProduct extends StatefulWidget {
 }
 
 class _CatalogProductState extends State<CatalogProduct> {
+
+
   List<Widget> getCatalogMenu() {
     List<Widget> tabs = [
       MenuItem(

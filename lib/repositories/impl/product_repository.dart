@@ -2,6 +2,7 @@ import 'package:late_pos/models/product_model.dart';
 import 'package:late_pos/repositories/product_repository_interface.dart';
 
 class ProductRepository implements IProductRepository {
+  @deprecated
   @override
   List<ProductModel> getAllProducts() {
     List<ProductModel> products;
@@ -27,6 +28,6 @@ class ProductRepository implements IProductRepository {
       ProductModel(id: 3, name: "Teh Es", price: "Rp 5000", category: "Teh"),
     ];
 
-    return Future.delayed(const Duration(milliseconds: 300), () => products);
+    return Future.delayed(const Duration(milliseconds: 3000), () => products);
   }
 }

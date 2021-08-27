@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:late_pos/screens/orders/order_screen.dart';
+import 'package:late_pos/screens/sale/sale_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -15,6 +15,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     SystemChrome.setPreferredOrientations(
         [DeviceOrientation.landscapeLeft, DeviceOrientation.landscapeRight]);
-    return MaterialApp(home: OrderScreen());
+    return MaterialApp(home: SaleScreen());
   }
 }

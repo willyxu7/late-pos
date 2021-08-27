@@ -2,6 +2,7 @@ import 'package:late_pos/models/category_model.dart';
 import 'package:late_pos/repositories/category_repository_interface.dart';
 
 class CategoryRepository implements ICategoryRepository {
+  @deprecated
   @override
   List<CategoryModel> getAllCategories() {
     List<CategoryModel> categories;

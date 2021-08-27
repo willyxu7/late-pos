@@ -2,6 +2,7 @@ import 'package:late_pos/models/transaction_saved_model.dart';
 import 'package:late_pos/repositories/transaction_saved_repository_interface.dart';
 
 class TransactionSavedRepository implements ITransactionSavedRepository {
+  @deprecated
   @override
   List<TransactionSavedModel> getAllTransactionsSaved() {
     List<TransactionSavedModel> transactionsSaved = [
@@ -25,5 +26,30 @@ class TransactionSavedRepository implements ITransactionSavedRepository {
     ];
 
     return transactionsSaved;
+  }
+
+  @override
+  Future<List<TransactionSavedModel>> transactionSaveds() async {
+    List<TransactionSavedModel> transactionsSaveds = [
+      TransactionSavedModel(
+        code: "TSVM1627377855",
+        grandTotal: 5000,
+        time: "16:24",
+        orders: "Kopi Panas",
+        name: "Merry",
+        date: "27 Juli 2021",
+        note: "Tersimpan",
+      ),
+      TransactionSavedModel(
+          code: "TSVM75893747454",
+          grandTotal: 10000,
+          time: "16:40",
+          orders: "Kopi Susu Es",
+          name: "Willy",
+          date: "29 Juli 2021",
+          note: "Tersimpan"),
+    ];
+
+    return Future.delayed(Duration(milliseconds: 300), () => transactionsSaveds);
   }
 }

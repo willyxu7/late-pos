@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 
 class ShiftModel {
+  int id;
   String cashier;
   String status;
   String initialTime;
@@ -11,6 +12,7 @@ class ShiftModel {
   double finalCash;
 
   ShiftModel({
+    this.id,
     @required this.cashier,
     @required this.status,
     @required this.initialTime,

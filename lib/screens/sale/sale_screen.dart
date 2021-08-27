@@ -2,30 +2,36 @@ import 'package:flutter/material.dart';
 import 'package:late_pos/models/product_model.dart';
 import 'package:late_pos/repositories/impl/product_repository.dart';
 import 'package:late_pos/repositories/product_repository_interface.dart';
-import 'package:late_pos/screens/orders/widgets/catalog_product.dart';
-import 'package:late_pos/screens/orders/widgets/catalog_product_selected.dart';
+import 'package:late_pos/screens/sale/widgets/catalog_product.dart';
+import 'package:late_pos/screens/sale/widgets/catalog_product_selected.dart';
 import 'package:late_pos/screens/transaction_saved/transaction_saved_screen.dart';
 import 'package:late_pos/widget/appbar_button.dart';
 import 'package:late_pos/widget/my_drawer.dart';
 
-class OrderScreen extends StatefulWidget {
-  const OrderScreen({Key key}) : super(key: key);
+class SaleScreen extends StatefulWidget {
+  const SaleScreen({Key key}) : super(key: key);
 
   @override
-  _OrderScreenState createState() => _OrderScreenState();
+  _SaleScreenState createState() => _SaleScreenState();
 }
 
-class _OrderScreenState extends State<OrderScreen> {
+class _SaleScreenState extends State<SaleScreen> {
   final IProductRepository _productRepository = ProductRepository();
   int _selectedDestination = 0;
   List<ProductModel> _selectedProducts = [];
   List<ProductModel> _products = [];
+  bool isLoading = true;
+
+  void initData() async {
+    _products = await _productRepository.getProducts();
+    isLoading = false;
+    setState(() {});
+  }
 
   @override
-  void initState() {
-    // TODO: implement initState
+  void initState(){
     super.initState();
-    _products = _productRepository.getAllProducts();
+    initData();
   }
 
   @override
@@ -57,7 +63,7 @@ class _OrderScreenState extends State<OrderScreen> {
       drawer: MyDrawer(
         selectedDestination: _selectedDestination,
       ),
-      body: Container(
+      body: isLoading ? Center(child: CircularProgressIndicator()) : Container(
         child: Row(
           children: [
             Expanded(
